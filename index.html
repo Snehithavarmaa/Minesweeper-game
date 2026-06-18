@@ -1,0 +1,368 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MineBlaster - Minesweeper Game</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    
+    <!-- FEATURE 1(a) - Title and Subtitle -->
+    <!-- FEATURE 1(b) - Icon beside Title -->
+    
+    <header class="header">
+
+        <div class="title-section">
+
+            <div class="game-icon">
+                <i class="fa-solid fa-bomb"></i>
+            </div>
+
+            <div>
+                <h1>MineBlaster</h1>
+                <p class="subtitle">
+                    Clear the board, avoid the mines!
+                </p>
+            </div>
+
+        </div>
+
+    </header>
+
+    <!-- CONTROL PANEL -->
+
+    <section class="control-panel">
+
+        <!-- Difficulty Selection -->
+        
+        <div class="control-group">
+
+            <label for="difficultySelect">
+                Difficulty
+            </label>
+
+            <select id="difficultySelect">
+
+                <option value="easy">
+                    Easy (9x9 - 10 Mines)
+                </option>
+
+                <option value="medium">
+                    Medium (16x16 - 40 Mines)
+                </option>
+
+                <option value="hard">
+                    Hard (30x16 - 99 Mines)
+                </option>
+
+                <option value="custom">
+                    Custom
+                </option>
+
+            </select>
+
+        </div>
+
+        <!-- Custom Settings -->
+
+        <div class="custom-settings">
+
+            <input
+                type="number"
+                id="customRows"
+                min="5"
+                max="30"
+                value="9"
+                placeholder="Rows">
+
+            <input
+                type="number"
+                id="customCols"
+                min="5"
+                max="30"
+                value="9"
+                placeholder="Columns">
+
+            <input
+                type="number"
+                id="customMines"
+                min="1"
+                value="10"
+                placeholder="Mines">
+
+        </div>
+
+        <!-- Buttons -->
+        
+        <div class="button-group">
+
+            <button id="newGameBtn">
+                New Game
+            </button>
+
+            <button id="resetBtn">
+                Reset Board
+            </button>
+
+        </div>
+
+    </section>
+
+    
+    <!-- GAME INFORMATION BAR -->
+    
+    <section class="game-info">
+
+        <!-- Mine Counter -->
+        <div class="info-card">
+
+            <span class="info-title">
+                Mines Left
+            </span>
+
+            <span id="mineCounter">
+                10
+            </span>
+
+        </div>
+
+        <!-- Timer -->
+        <div class="info-card">
+
+            <span class="info-title">
+                Time
+            </span>
+
+            <span id="timer">
+                0
+            </span>
+
+        </div>
+
+        <!-- Game Status -->
+        <div class="info-card">
+
+            <span class="info-title">
+                Status
+            </span>
+
+            <span id="gameStatus">
+                Ready
+            </span>
+
+        </div>
+
+    </section>
+
+    <!-- THEME SETTINGS -->
+    
+    <section class="settings-panel">
+
+        <div class="setting-box">
+
+            <label class="toggle-label">
+
+                <input
+                    type="checkbox"
+                    id="themeToggle">
+
+                <span>
+                    Dark Mode
+                </span>
+
+            </label>
+
+        </div>
+
+        <div class="setting-box">
+
+            <label for="cellSizeSelect">
+                Cell Size
+            </label>
+
+            <select id="cellSizeSelect">
+
+                <option value="small">
+                    Small
+                </option>
+
+                <option value="medium" selected>
+                    Medium
+                </option>
+
+                <option value="large">
+                    Large
+                </option>
+
+            </select>
+
+        </div>
+
+        <div class="setting-box">
+
+            <label for="boardThemeSelect">
+                Board Theme
+            </label>
+
+            <select id="boardThemeSelect">
+
+                <option value="maroon">
+                    Maroon Pink
+                </option>
+
+                <option value="rose">
+                    Rose Gold
+                </option>
+
+                <option value="berry">
+                    Berry Purple
+                </option>
+
+            </select>
+
+        </div>
+
+    </section>
+
+    
+    <!-- MAIN GAME AREA -->
+    
+    <main>
+
+        <!-- Game Board -->
+        <div id="gameBoard">
+
+            <!-- Cells generated using JavaScript -->
+
+        </div>
+
+    </main>
+
+    <!-- MESSAGE AREA -->
+
+    <section class="message-section">
+
+        <h2 id="messageBox">
+            Good Luck!
+        </h2>
+
+    </section>
+
+    <!-- SCOREBOARD / STATS -->
+
+    <section class="stats-section">
+
+        <h2>
+            Player Statistics
+        </h2>
+
+        <div class="stats-container">
+
+            <div class="stat-card">
+
+                <h3>Games Played</h3>
+
+                <p id="gamesPlayed">
+                    0
+                </p>
+
+            </div>
+
+            <div class="stat-card">
+
+                <h3>Games Won</h3>
+
+                <p id="gamesWon">
+                    0
+                </p>
+
+            </div>
+
+            <div class="stat-card">
+
+                <h3>Win Rate</h3>
+
+                <p id="winRate">
+                    0%
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- Reset Stats -->
+        <button id="resetStatsBtn">
+            Reset Statistics
+        </button>
+
+    </section>
+    
+    <!-- LEADERBOARD -->
+
+    <section class="leaderboard-section">
+
+        <h2>
+            Top 3 Fastest Times
+        </h2>
+
+        <div id="leaderboardContainer">
+
+            <div class="leaderboard-row">
+                No records yet
+            </div>
+
+        </div>
+
+        <button id="resetLeaderboardBtn"> Reset Leaderboard</button>
+
+    </section>
+
+    
+    <!--  KEYBOARD NAVIGATION HELP -->
+    
+    <section class="help-section">
+
+        <h2>
+            Controls
+        </h2>
+
+        <ul>
+
+            <li>
+                Left Click = Reveal Cell
+            </li>
+
+            <li>
+                Right Click = Flag / Question Mark
+            </li>
+
+            <li>
+                Arrow Keys = Move Selection
+            </li>
+
+            <li>
+                Enter = Reveal Cell
+            </li>
+
+            <li>
+                Space = Flag Cell
+            </li>
+
+        </ul>
+
+    </section>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
+
