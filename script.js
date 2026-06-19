@@ -49,14 +49,6 @@ document.getElementById("newGameBtn");
 const resetBtn =
 document.getElementById("resetBtn");
 
-
-/*  Cell Object Structure
-   mine
-   revealed
-   flagged
-   question
-   number */
-
 /* Update Mine Counter */
 
 function updateMineCounter() {
@@ -350,12 +342,6 @@ resetBtn.addEventListener(
 loadDifficulty();
 
 resetGame();
-
-/* =====================================================
-   PART 2
-   Reveal Cells, Flags, Question Marks
-   Flood Fill Algorithm
-   ===================================================== */
 
 /* Get Cell Element */
 
@@ -688,14 +674,6 @@ function attachBoardEvents() {
     });
 }
 
-   /* =====================================================
-   PART 3
-   Win / Loss Logic
-   Chord Action
-   Mine Reveal
-   Explosion Animation
-   ===================================================== */
-
 /* Chord Action */
 
 function chordReveal(row, col) {
@@ -967,13 +945,6 @@ function refreshBoardEvents() {
 
     attachChordEvents();
 }
-
-   /* =====================================================
-   PART 4
-   Statistics
-   localStorage
-   Leaderboard
-   ===================================================== */
 
 /* Statistics Elements */
 
@@ -1285,16 +1256,6 @@ if (resetLeaderboardBtn) {
 
 loadStatistics();
 updateLeaderboardDisplay();
-
-/* =====================================================
-   PART 5
-   Dark Mode
-   Themes
-   Cell Size
-   Keyboard Navigation
-   Final Setup
-   ===================================================== */
-
 
 /* Theme Elements */
 
@@ -1711,11 +1672,6 @@ function showReadyMessage() {
     messageBox.textContent =
         "Good Luck!";
 }
-
-/* =====================================================
-   OPTIONAL
-   Nice Status Messages
-   ===================================================== */
 
 function setGameStatus(text) {
 
